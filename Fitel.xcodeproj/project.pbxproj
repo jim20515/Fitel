@@ -129,6 +129,7 @@
 		1A8C4D351A9D7A5C00588D22 /* CalculateResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A8C4D341A9D7A5C00588D22 /* CalculateResultViewController.m */; };
 		1AC3DDCA1A9DA02B00CC2EAC /* TrainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AC3DDC91A9DA02B00CC2EAC /* TrainViewController.m */; };
 		1AEBC9FB1A9DBB11002E4848 /* CircularTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AEBC9FA1A9DBB11002E4848 /* CircularTimer.m */; };
+		387D3C381ABB337600349F0C /* YoutubeItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 387D3C371ABB337600349F0C /* YoutubeItem.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -405,6 +406,8 @@
 		1AC3DDC91A9DA02B00CC2EAC /* TrainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrainViewController.m; sourceTree = "<group>"; };
 		1AEBC9F91A9DBB11002E4848 /* CircularTimer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CircularTimer.h; sourceTree = "<group>"; };
 		1AEBC9FA1A9DBB11002E4848 /* CircularTimer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CircularTimer.m; sourceTree = "<group>"; };
+		387D3C361ABB337600349F0C /* YoutubeItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YoutubeItem.h; sourceTree = "<group>"; };
+		387D3C371ABB337600349F0C /* YoutubeItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YoutubeItem.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -851,23 +854,25 @@
 		1A4F70971A931E4900924E1A /* AppUI */ = {
 			isa = PBXGroup;
 			children = (
+				1A8C4D301A9D664900588D22 /* AboutUsViewController.h */,
+				1A8C4D311A9D664900588D22 /* AboutUsViewController.m */,
 				1A4F70981A931E5300924E1A /* AppUIHeaders.h */,
-				1A4F709C1A9320ED00924E1A /* MainViewController.h */,
-				1A4F709D1A9320ED00924E1A /* MainViewController.m */,
+				1A8C4D331A9D7A5C00588D22 /* CalculateResultViewController.h */,
+				1A8C4D341A9D7A5C00588D22 /* CalculateResultViewController.m */,
 				1A4F70A21A93212000924E1A /* CalculateViewController.h */,
 				1A4F70A31A93212000924E1A /* CalculateViewController.m */,
+				1AEBC9F91A9DBB11002E4848 /* CircularTimer.h */,
+				1AEBC9FA1A9DBB11002E4848 /* CircularTimer.m */,
+				1A4F709C1A9320ED00924E1A /* MainViewController.h */,
+				1A4F709D1A9320ED00924E1A /* MainViewController.m */,
 				1A4F709F1A93210D00924E1A /* SettingViewController.h */,
 				1A4F70A01A93210D00924E1A /* SettingViewController.m */,
 				1A740AF91A99BE1100A5FBC0 /* TrainItem.h */,
 				1A740AFA1A99BE1100A5FBC0 /* TrainItem.m */,
-				1A8C4D301A9D664900588D22 /* AboutUsViewController.h */,
-				1A8C4D311A9D664900588D22 /* AboutUsViewController.m */,
-				1A8C4D331A9D7A5C00588D22 /* CalculateResultViewController.h */,
-				1A8C4D341A9D7A5C00588D22 /* CalculateResultViewController.m */,
 				1AC3DDC81A9DA02B00CC2EAC /* TrainViewController.h */,
 				1AC3DDC91A9DA02B00CC2EAC /* TrainViewController.m */,
-				1AEBC9F91A9DBB11002E4848 /* CircularTimer.h */,
-				1AEBC9FA1A9DBB11002E4848 /* CircularTimer.m */,
+				387D3C361ABB337600349F0C /* YoutubeItem.h */,
+				387D3C371ABB337600349F0C /* YoutubeItem.m */,
 			);
 			path = AppUI;
 			sourceTree = "<group>";
@@ -1078,6 +1083,7 @@
 				1A740B261A99C4F100A5FBC0 /* SDWebImageManager.m in Sources */,
 				1A740B251A99C4F100A5FBC0 /* SDWebImageDownloaderOperation.m in Sources */,
 				1AC3DDCA1A9DA02B00CC2EAC /* TrainViewController.m in Sources */,
+				387D3C381ABB337600349F0C /* YoutubeItem.m in Sources */,
 				1A4F701F1A931D4100924E1A /* UITableViewController+ADScaleTransititon.m in Sources */,
 				1A740B2B1A99C4F100A5FBC0 /* UIImage+WebP.m in Sources */,
 				1A4F703B1A931D4100924E1A /* UIImage+TintColor.m in Sources */,
@@ -1202,7 +1208,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "82bff024-34d4-4c2f-86a8-283f05fa7a34";
+				PROVISIONING_PROFILE = "31a50ec5-79f1-4324-96bf-e60b554547cd";
 			};
 			name = Debug;
 		};

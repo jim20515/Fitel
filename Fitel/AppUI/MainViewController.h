@@ -7,6 +7,7 @@
 //
 
 #import "ScrollRefreshViewController.h"
+#import "YoutubeItem.h"
 
 @interface TrainCollectionViewCell : UICollectionViewCell
 {
@@ -27,9 +28,9 @@
 }
 
 @property (nonatomic, strong) NSMutableArray *trainItems;
+@property (nonatomic, strong) NSMutableArray *youtubeItems;
 
 @property (nonatomic, strong) TrainKeyValue *selectKV;
 
 @property (nonatomic, strong) MBProgressHUD *progressHUD;
-
 @end
