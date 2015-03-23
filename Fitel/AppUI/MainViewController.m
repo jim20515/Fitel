@@ -22,6 +22,8 @@
 
 @implementation ProgressView
 
+static int _scrollViewHight = 130;
+
 - (instancetype)initWithFrame:(CGRect)frame
 {
     if (self = [super initWithFrame:CGRectMake(0, 0, 200, 30)])
@@ -285,8 +287,9 @@
 }
 
 -(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section{
+    
     if(section == 0)
-        return CGSizeMake(320, 120);
+        return CGSizeMake(self.view.bounds.size.width, _scrollViewHight);
     
     return CGSizeZero;
 }
@@ -300,7 +303,7 @@
 
         
         CGSize screenSize = [[UIScreen mainScreen] bounds].size;
-        CGSize scrollViewScreenSize = CGSizeMake(screenSize.width, 100);
+        CGSize scrollViewScreenSize = CGSizeMake(screenSize.width, _scrollViewHight);
         
         UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, scrollViewScreenSize.width, scrollViewScreenSize.height)];
         scrollView.contentSize = CGSizeMake((scrollViewScreenSize.width / 3) * self.youtubeItems.count, scrollViewScreenSize.height);
@@ -327,9 +330,12 @@
                 });
             });
             
-            UILabel *title = [[UILabel alloc] initWithFrame:CGRectMake(0, imageButton.bounds.size.height + 5, imageButton.bounds.size.width, 10)];
+            UILabel *title = [[UILabel alloc] initWithFrame:CGRectMake(0, imageButton.bounds.size.height + 5, imageButton.bounds.size.width, 40)];
             [title setFont:[UIFont systemFontOfSize:12]];
             title.text = item.title;
+            
+            title.lineBreakMode = UILineBreakModeWordWrap;
+            title.numberOfLines = 0;
             
             [view addSubview:imageButton];
             [view addSubview:title];
@@ -339,6 +345,10 @@
         }
 
         [headerView addSubview:scrollView];
+        
+        UILabel *underline = [[UILabel alloc] initWithFrame:CGRectMake(0, scrollView.bounds.size.height, self.view.bounds.size.width, 1)];
+        [underline setBackgroundColor:[UIColor lightGrayColor]];
+        [headerView addSubview:underline];
         
         return headerView;
     }

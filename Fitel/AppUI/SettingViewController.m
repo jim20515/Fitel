@@ -33,9 +33,51 @@
     }];
     [self.menuItems addObject:item];
     
-    item = [[MenuItem alloc] initWithTitle:kSettingCell_OrderZone_Str icon:nil action:^(id<MenuAbleItem> menu) {
+//    item = [[MenuItem alloc] initWithTitle:kSettingCell_OrderZone_Str icon:nil action:^(id<MenuAbleItem> menu) {
+//        //        http://leeyihugh.pixnet.net/blog/post/261135124
+//        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://leeyihugh.pixnet.net/blog/post/261135124"]];
+//    }];
+//    [self.menuItems addObject:item];
+    
+    item = [[MenuItem alloc] initWithTitle:@"一休減重心得分享" icon:nil action:^(id<MenuAbleItem> menu) {
         //        http://leeyihugh.pixnet.net/blog/post/261135124
-        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://leeyihugh.pixnet.net/blog/post/261135124"]];
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://leeyihugh.pixnet.net/blog/category/list/1660748"]];
+    }];
+    [self.menuItems addObject:item];
+    
+    item = [[MenuItem alloc] initWithTitle:@"90天減脂計劃菜單" icon:nil action:^(id<MenuAbleItem> menu) {
+        //        http://leeyihugh.pixnet.net/blog/post/261135124
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://leeyihugh.pixnet.net/blog/category/list/2134658"]];
+    }];
+    [self.menuItems addObject:item];
+    
+    item = [[MenuItem alloc] initWithTitle:@"90天減脂計劃PART 2" icon:nil action:^(id<MenuAbleItem> menu) {
+        //        http://leeyihugh.pixnet.net/blog/post/261135124
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://leeyihugh.pixnet.net/blog/category/list/3190393"]];
+    }];
+    [self.menuItems addObject:item];
+    
+    item = [[MenuItem alloc] initWithTitle:@"一休教你做低卡減重料理" icon:nil action:^(id<MenuAbleItem> menu) {
+        //        http://leeyihugh.pixnet.net/blog/post/261135124
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://leeyihugh.pixnet.net/blog/category/list/2095004"]];
+    }];
+    [self.menuItems addObject:item];
+    
+    item = [[MenuItem alloc] initWithTitle:@"吃了包你肥食物系列" icon:nil action:^(id<MenuAbleItem> menu) {
+        //        http://leeyihugh.pixnet.net/blog/post/261135124
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://leeyihugh.pixnet.net/blog/category/list/2118230"]];
+    }];
+    [self.menuItems addObject:item];
+    
+    item = [[MenuItem alloc] initWithTitle:@"一休x保保的物理治療小教室" icon:nil action:^(id<MenuAbleItem> menu) {
+        //        http://leeyihugh.pixnet.net/blog/post/261135124
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://leeyihugh.pixnet.net/blog/category/list/3425422"]];
+    }];
+    [self.menuItems addObject:item];
+    
+    item = [[MenuItem alloc] initWithTitle:@"團購專區" icon:nil action:^(id<MenuAbleItem> menu) {
+        //        http://leeyihugh.pixnet.net/blog/post/261135124
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://leeyihugh.pixnet.net/blog/category/list/2579362"]];
     }];
     [self.menuItems addObject:item];
     
