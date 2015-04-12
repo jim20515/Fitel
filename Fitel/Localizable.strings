@@ -43,10 +43,10 @@
 "kTrain_Type1_Str" = "暖身";
 "kTrain_Type2_Str" = "深蹲教學";
 "kTrain_Type3_Str" = "Tabata初級";
-"kTrain_Type4_Str" = "Tabata進階";
+"kTrain_Type4_Str" = "Tabata中階";
 "kTrain_Type5_Str" = "Tabata腹肌";
 "kTrain_Type6_Str" = "健臂";
-"kTrain_Type7_Str" = "仰臥起坐";
+"kTrain_Type7_Str" = "波比跳";
 "kTrain_Type8_Str" = "伏地挺身";
 "kTrain_Type9_Str" = "徒手深蹲";
 "kTrain_Type10_Str" = "棒式";
@@ -95,7 +95,7 @@
 "kCalculateResult_Age_Format_Str" = "%d\nYour Age\n你的年齡";
 "kCalculateResult_Height_Format_Str" = "%d\nYour Height\n你的身高";
 "kCalculateResult_Weight_Format_Str" = "%d\nYour Weight\n你的體重";
-"kCalculateResult_BMI_Format_Str" = "%0.1f％\nYour BMI\n你的BMI值";
+"kCalculateResult_BMI_Format_Str" = "%0.1f\nYour BMI\n你的BMI值";
 "kCalculateResult_BasicDaiXie_Format_Str" = "%0.1f大卡/日\n\n基礎代謝率";
 "kCalculateResult_NeedDay_Format_Str" = "%0.1f大卡/日\n\n每日所需熱量";
 "kCalculateResult_MHR_Format_Str" = "%d\nYour MHR\n最高心跳率";

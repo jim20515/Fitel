@@ -209,7 +209,7 @@ static int _scrollViewHight = 130;
              NSMutableArray *realArray = [NSMutableArray array];
              
              
-             for (NSInteger i = 1; i <= 10; i++)
+             for (NSInteger i = 3; i <= 10; i++)
              {
                  NSMutableArray *value = [NSMutableArray array];
                  for (NSInteger j = 0; j<array.count; j++)
@@ -244,12 +244,12 @@ static int _scrollViewHight = 130;
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
 {
-    return 4;
+    return 3;
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    if (section == 0 || section == 3)
+    if (section == 2)
     {
         return 2;
     }
