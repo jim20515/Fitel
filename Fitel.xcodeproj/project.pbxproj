@@ -129,6 +129,9 @@
 		1A8C4D351A9D7A5C00588D22 /* CalculateResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A8C4D341A9D7A5C00588D22 /* CalculateResultViewController.m */; };
 		1AC3DDCA1A9DA02B00CC2EAC /* TrainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AC3DDC91A9DA02B00CC2EAC /* TrainViewController.m */; };
 		1AEBC9FB1A9DBB11002E4848 /* CircularTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AEBC9FA1A9DBB11002E4848 /* CircularTimer.m */; };
+		3806DFAC1B0724FF0022B3EB /* TrainTypeItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 3806DFAB1B0724FF0022B3EB /* TrainTypeItem.m */; };
+		3806DFAF1B079B2F0022B3EB /* PlistHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 3806DFAE1B079B2F0022B3EB /* PlistHelper.m */; };
+		3806DFB11B08CC6C0022B3EB /* 123.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3806DFB01B08CC6C0022B3EB /* 123.jpg */; };
 		387D3C381ABB337600349F0C /* YoutubeItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 387D3C371ABB337600349F0C /* YoutubeItem.m */; };
 /* End PBXBuildFile section */
 
@@ -406,6 +409,11 @@
 		1AC3DDC91A9DA02B00CC2EAC /* TrainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrainViewController.m; sourceTree = "<group>"; };
 		1AEBC9F91A9DBB11002E4848 /* CircularTimer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CircularTimer.h; sourceTree = "<group>"; };
 		1AEBC9FA1A9DBB11002E4848 /* CircularTimer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CircularTimer.m; sourceTree = "<group>"; };
+		3806DFAA1B0724FF0022B3EB /* TrainTypeItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrainTypeItem.h; sourceTree = "<group>"; };
+		3806DFAB1B0724FF0022B3EB /* TrainTypeItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrainTypeItem.m; sourceTree = "<group>"; };
+		3806DFAD1B079B2F0022B3EB /* PlistHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlistHelper.h; sourceTree = "<group>"; };
+		3806DFAE1B079B2F0022B3EB /* PlistHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlistHelper.m; sourceTree = "<group>"; };
+		3806DFB01B08CC6C0022B3EB /* 123.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 123.jpg; sourceTree = "<group>"; };
 		387D3C361ABB337600349F0C /* YoutubeItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YoutubeItem.h; sourceTree = "<group>"; };
 		387D3C371ABB337600349F0C /* YoutubeItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YoutubeItem.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -441,6 +449,7 @@
 		1A4F6EC11A931CA000924E1A /* Fitel */ = {
 			isa = PBXGroup;
 			children = (
+				3806DFB01B08CC6C0022B3EB /* 123.jpg */,
 				1A4F70991A931E6E00924E1A /* FitelConstHeader.h */,
 				1A4F709A1A931E6E00924E1A /* FitelStringsHeader.h */,
 				1A4F709B1A931E6E00924E1A /* FitelImageHeader.h */,
@@ -766,6 +775,8 @@
 				1A4F6F931A931D4100924E1A /* PathHeaders.h */,
 				1A4F6F941A931D4100924E1A /* PathUtility.h */,
 				1A4F6F951A931D4100924E1A /* PathUtility.m */,
+				3806DFAD1B079B2F0022B3EB /* PlistHelper.h */,
+				3806DFAE1B079B2F0022B3EB /* PlistHelper.m */,
 			);
 			path = Path;
 			sourceTree = "<group>";
@@ -869,6 +880,8 @@
 				1A4F70A01A93210D00924E1A /* SettingViewController.m */,
 				1A740AF91A99BE1100A5FBC0 /* TrainItem.h */,
 				1A740AFA1A99BE1100A5FBC0 /* TrainItem.m */,
+				3806DFAA1B0724FF0022B3EB /* TrainTypeItem.h */,
+				3806DFAB1B0724FF0022B3EB /* TrainTypeItem.m */,
 				1AC3DDC81A9DA02B00CC2EAC /* TrainViewController.h */,
 				1AC3DDC91A9DA02B00CC2EAC /* TrainViewController.m */,
 				387D3C361ABB337600349F0C /* YoutubeItem.h */,
@@ -980,6 +993,7 @@
 				1A4F70A61A9321F600924E1A /* Localizable.strings in Resources */,
 				1A0B1AC31A9E2FDA001C02C9 /* end.m4a in Resources */,
 				1A4F6ED01A931CA000924E1A /* Images.xcassets in Resources */,
+				3806DFB11B08CC6C0022B3EB /* 123.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1030,6 +1044,7 @@
 				1A4F704C1A931D4100924E1A /* IOSDeviceConfig.m in Sources */,
 				1A4F70271A931D4100924E1A /* GTMBase64.m in Sources */,
 				1A4F70281A931D4100924E1A /* KeyChainHelper.m in Sources */,
+				3806DFAF1B079B2F0022B3EB /* PlistHelper.m in Sources */,
 				1A4F70201A931D4100924E1A /* UIViewController+ADScaleTransition.m in Sources */,
 				1A4F70631A931D4100924E1A /* BaseAppDelegate.m in Sources */,
 				1A4F705C1A931D4100924E1A /* Singleton.m in Sources */,
@@ -1063,6 +1078,7 @@
 				1A4F70491A931D4100924E1A /* MoreTableView.m in Sources */,
 				1A740B2D1A99C4F100A5FBC0 /* UIImageView+WebCache.m in Sources */,
 				1A4F709E1A9320ED00924E1A /* MainViewController.m in Sources */,
+				3806DFAC1B0724FF0022B3EB /* TrainTypeItem.m in Sources */,
 				1A4F702C1A931D4100924E1A /* NSData+CRC.m in Sources */,
 				1A4F70311A931D4100924E1A /* NSString+RegexCheck.m in Sources */,
 				1A4F703F1A931D4100924E1A /* UIView+CustomAutoLayout.m in Sources */,
@@ -1132,8 +1148,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: ken liu (6ZD9T488MM)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: ken liu (6ZD9T488MM)";
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -1153,7 +1169,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "6067CB75-1928-41D4-97B7-A28559EBF77B";
+				PROVISIONING_PROFILE = "523e3260-363b-44c2-bc98-0bfb4f829259";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -1175,8 +1191,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Shenzhen Insigma Innovation Software Co., Ltd.";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Shenzhen Insigma Innovation Software Co., Ltd.";
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -1189,7 +1205,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PROVISIONING_PROFILE = "C0183B1A-613B-4B8F-B927-3B9C88FE05F0";
+				PROVISIONING_PROFILE = "523e3260-363b-44c2-bc98-0bfb4f829259";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -1200,7 +1216,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = YES;
 				GCC_PREFIX_HEADER = "Fitel/Fitel-Prefix.pch";
@@ -1208,7 +1224,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "8c2dd86b-bbc3-4214-a5c3-367f4de34574";
+				PROVISIONING_PROFILE = "523e3260-363b-44c2-bc98-0bfb4f829259";
 			};
 			name = Debug;
 		};
@@ -1217,7 +1233,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = YES;
 				GCC_PREFIX_HEADER = "Fitel/Fitel-Prefix.pch";
@@ -1225,7 +1241,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "8c2dd86b-bbc3-4214-a5c3-367f4de34574";
+				PROVISIONING_PROFILE = "523e3260-363b-44c2-bc98-0bfb4f829259";
 			};
 			name = Release;
 		};

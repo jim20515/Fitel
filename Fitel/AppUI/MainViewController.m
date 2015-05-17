@@ -7,7 +7,7 @@
 //
 
 #import "MainViewController.h"
-
+#import "PlistHelper.h"
 
 @interface ProgressView : UIView
 {
@@ -21,6 +21,7 @@
 
 
 @implementation ProgressView
+
 
 static int _scrollViewHight = 130;
 
@@ -41,6 +42,7 @@ static int _scrollViewHight = 130;
         //        _progress.backgroundColor = kRedColor;
         _progress.text = @"0/100";
         [self addSubview:_progress];
+        
     }
     return self;
 }
@@ -78,12 +80,11 @@ static int _scrollViewHight = 130;
     [self.contentView addSubview:_title];
 }
 
-- (void)configTrain:(TrainKeyValue *)item
+- (void)configTrain:(TrainTypeItem *)item
 {
     self.item = item;
-    _title.text = item.key;
-    _imageView.image = item.image;
-    
+    _title.text = item.typeName;
+    _imageView.image = [UIImage imageNamed:[item cacheImagePath]];
 }
 
 - (void)layoutSubviews
@@ -152,6 +153,11 @@ static int _scrollViewHight = 130;
     _collectionView.dataSource = self;
     _collectionView.backgroundColor = kClearColor;
     [self.view addSubview:_collectionView];
+    
+    
+    self.testButton = [[UIButton alloc] initWithFrame:CGRectMake(10, 10, 100, 100)];
+    
+    [self.view addSubview:self.testButton];
     [_collectionView registerClass:[TrainCollectionViewCell class] forCellWithReuseIdentifier:[self cellIdentifier]];
     _collectionView.frame = self.view.bounds;
     _collectionView.autoresizesSubviews = YES;
@@ -166,10 +172,76 @@ static int _scrollViewHight = 130;
     [self refreshCompleted];
 }
 
-//- (void)layoutOnIPhone
-//{
-//    _collectionView.frame = self.view.bounds;
-//}
+- (void)layoutOnIPhone
+{
+    _collectionView.frame = self.view.bounds;
+}
+
+- (void)requestType:(BOOL)cache
+{
+    NSURL *url = [NSURL URLWithString:kTypeNameURL];
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
+    if (cache)
+    {
+        request.cachePolicy = NSURLRequestReturnCacheDataElseLoad;
+    }
+    
+    [request setValue:@"text/xml;charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
+    
+    
+    __weak typeof(self) ws = self;
+    [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *urlResponce, NSData *data, NSError *error)
+     {
+         
+         [[HUDHelper sharedInstance] stopLoading];
+         [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+         
+         
+         if (error != nil)
+         {
+             [[HUDHelper sharedInstance] tipMessage:kNetwork_Error_Str];
+         }
+         else
+         {
+             NSString *responseString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+             DebugLog(@"=========================>>>>>>>>\nresponseString is :\n %@" , responseString);
+             // TODO : 正则表解析XML返回的结果
+             // 改下面这句
+             NSDictionary *dic = [responseString objectFromJSONString];
+             NSArray *trains = [dic objectForKey:@"typeList"];
+             NSMutableArray *array = [NSObject loadItem:[TrainTypeItem class] fromArrayDictionary:trains];
+             
+             NSMutableArray *realArray = [NSMutableArray array];
+             
+             for (NSInteger i = 0; i < array.count; i++)
+             {
+                 TrainTypeItem *item = [array objectAtIndex:i];
+                 
+                 [realArray addObject:item];
+             }
+             
+             ws.trainTypeItems = realArray;
+             
+             [self request:NO];
+         }
+     }];
+}
+
+- (NSString *)typeImagePath:(NSString *)type
+{
+    if(self.trainItems) {
+        for(TrainKeyValue *item in self.trainItems) {
+            TrainItem *itemObject = item.playingItem;
+            
+            if([itemObject.type isEqualToString:type])
+                return itemObject.imagePath;
+            
+        }
+    }
+    
+    return @"";
+}
 
 - (void)request:(BOOL)cache
 {
@@ -208,15 +280,47 @@ static int _scrollViewHight = 130;
              
              NSMutableArray *realArray = [NSMutableArray array];
              
-             
-             for (NSInteger i = 3; i <= 10; i++)
+             for (NSInteger i = 0; i < self.trainTypeItems.count; i++)
              {
+                 TrainTypeItem *typeItem = [self.trainTypeItems objectAtIndex:i];
+                 
                  NSMutableArray *value = [NSMutableArray array];
+                 
                  for (NSInteger j = 0; j<array.count; j++)
                  {
                      TrainItem *item = [array objectAtIndex:j];
-                     if ([item.type integerValue] == i)
+                     if ([item.type integerValue] == i + 1)
                      {
+                         if(typeItem.imageURL)
+                             continue;
+                         
+                         typeItem.imageURL = item.imagePath;
+                         typeItem.imageName = [typeItem.imageURL componentsSeparatedByString:@"url="][1];
+                         
+                         if(![typeItem isDiffImage])
+                             continue;
+                         
+                         dispatch_queue_t concurrentQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+                         //this will start the image loading in bg
+                         dispatch_async(concurrentQueue, ^{
+                             NSData *image = [[NSData alloc] initWithContentsOfURL:[NSURL URLWithString:typeItem.imageURL]];
+                             
+                             //this will set the image when loading is finished
+                             dispatch_async(dispatch_get_main_queue(), ^{
+                                 
+                                 [PathUtility createDirectoryAtCache:TYPE_ITEM_FOLDER];
+                                 
+                                 NSString *localImageDir = [PathUtility getFileCachePath:TYPE_ITEM_FOLDER];
+                                 NSString *localImagePath = [localImageDir stringByAppendingFormat:@"/%@", typeItem.imageName];
+                                 
+                                 [UIImageJPEGRepresentation([UIImage imageWithData:image], 1.0) writeToFile:localImagePath atomically:YES];
+                                 [image writeToFile:localImagePath atomically:YES];
+                                 
+                                 [ws reload];
+                                    
+                             });
+                         });
+                         
                          [value addObject:item];
                      }
                  }
@@ -226,37 +330,32 @@ static int _scrollViewHight = 130;
              }
              
              ws.trainItems = realArray;
+             
              [ws reload];
          }
      }];
 }
 
+
 - (void)onRefresh
 {
-    [self request:NO];
+    [self requestType:NO];
 }
 
 - (void)configOwnViews
 {
-    [self request:NO];
+    [self requestType:NO];
 }
 
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
 {
-    return 3;
+    return (self.trainTypeItems.count / 3);
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    if (section == 2)
-    {
-        return 2;
-    }
-    else
-    {
-        return 3;
-    }
+    return 3;
 }
 
 
@@ -279,7 +378,7 @@ static int _scrollViewHight = 130;
     NSInteger index = [self trainItemIndexOf:indexPath];
     
     
-    TrainKeyValue *item = [self.trainItems objectAtIndex:index];
+    TrainTypeItem *item = [self.trainTypeItems objectAtIndex:index];
     [cell configTrain:item];
     
     
@@ -300,7 +399,7 @@ static int _scrollViewHight = 130;
     
     if (kind == UICollectionElementKindSectionHeader) {
         UICollectionReusableView *headerView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"HeaderView" forIndexPath:indexPath];
-
+        
         
         CGSize screenSize = [[UIScreen mainScreen] bounds].size;
         CGSize scrollViewScreenSize = CGSizeMake(screenSize.width, _scrollViewHight);
@@ -343,7 +442,7 @@ static int _scrollViewHight = 130;
             [scrollView addSubview:view];
             i++;
         }
-
+        
         [headerView addSubview:scrollView];
         
         UILabel *underline = [[UILabel alloc] initWithFrame:CGRectMake(0, scrollView.bounds.size.height, self.view.bounds.size.width, 1)];
@@ -366,7 +465,7 @@ static int _scrollViewHight = 130;
             if ([item canPlay])
             {
                 [self.progressHUD hide:YES];
-//                [[HUDHelper sharedInstance] stopLoading];
+                //                [[HUDHelper sharedInstance] stopLoading];
                 [[NSNotificationCenter defaultCenter] removeObserver:self];
                 
                 TrainViewController *vc = [[TrainViewController alloc] init];
@@ -410,7 +509,7 @@ static int _scrollViewHight = 130;
     else
     {
         self.selectKV = item;
-//        [[HUDHelper sharedInstance] loading];
+        //        [[HUDHelper sharedInstance] loading];
         [item startCache];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onDownloadChanged:) name:kTrainItemDownloadCompleted object:nil];
         

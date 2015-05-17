@@ -25,6 +25,7 @@
 #define kTipIconSize CGSizeMake(30, 30)
 
 #define kAppTrainURL @"http://www.fiteltechs.com/appServer/getVideosInfo.php"
+#define kTypeNameURL @"http://www.fiteltechs.com/appServer/getVideoTypes.php"
 
 #define kTrainItemDownloadCompleted @"kTrainItemDownloadCompleted"
 #define kTrainItemDownloadProgress  @"kTrainItemDownloadProgress"

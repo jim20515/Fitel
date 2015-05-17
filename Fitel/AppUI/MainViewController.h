@@ -8,6 +8,9 @@
 
 #import "ScrollRefreshViewController.h"
 #import "YoutubeItem.h"
+#import "TrainTypeItem.h"
+
+#define FITEL_PREFERENCE_PLIST @"Fitel"
 
 @interface TrainCollectionViewCell : UICollectionViewCell
 {
@@ -16,9 +19,9 @@
     UILabel *_title;
 }
 
-@property (nonatomic, weak) TrainKeyValue *item;
+@property (nonatomic, weak) TrainTypeItem *item;
 
-- (void)configTrain:(TrainKeyValue *)item;
+- (void)configTrain:(TrainTypeItem *)item;
 
 @end
 
@@ -28,7 +31,9 @@
 }
 
 @property (nonatomic, strong) NSMutableArray *trainItems;
+@property (nonatomic, strong) NSMutableArray *trainTypeItems;
 @property (nonatomic, strong) NSMutableArray *youtubeItems;
+@property (nonatomic, strong) UIButton *testButton;
 
 @property (nonatomic, strong) TrainKeyValue *selectKV;
 
