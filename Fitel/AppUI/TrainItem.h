@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+#define VIDEO_FOLDER @"Video"
+
 @interface TrainCacheOperation : MKNetworkOperation
 
 @end

@@ -16,9 +16,9 @@
     
     NSString *cachePath = [PathUtility getCachePath];
     
-    [PathUtility createDirectoryAtCache:@"Video"];
+    [PathUtility createDirectoryAtCache:VIDEO_FOLDER];
     
-    NSString *videoPath = [NSString stringWithFormat:@"%@/Video/", cachePath];
+    NSString *videoPath = [NSString stringWithFormat:@"%@/%@/", cachePath, VIDEO_FOLDER];
     NSString *fileName = [self.url md5];
     NSString *path = [NSString stringWithFormat:@"%@%@.mp4", videoPath, fileName];
     [PathUtility deleteFileAtPath:path];
@@ -44,54 +44,54 @@
 
 - (void)setType:(NSInteger)type
 {
-    _type = type;
-    switch (_type)
-    {
-        case 1:
-            self.key = kTrain_Type1_Str;
-            break;
-            
-        case 2:
-            self.key = kTrain_Type2_Str;
-            break;
-            
-        case 3:
-            self.key = kTrain_Type3_Str;
-            break;
-            
-        case 4:
-            self.key = kTrain_Type4_Str;
-            break;
-            
-        case 5:
-            self.key = kTrain_Type5_Str;
-            break;
-            
-        case 6:
-            self.key = kTrain_Type6_Str;
-            break;
-            
-        case 7:
-            self.key = kTrain_Type7_Str;
-            break;
-            
-        case 8:
-            self.key = kTrain_Type8_Str;
-            break;
-        case 9:
-            self.key = kTrain_Type9_Str;
-            break;
-            
-        case 10:
-            self.key = kTrain_Type10_Str;
-            break;
-            
-        default:
-            
-            break;
-    }
-    
-    _image = [UIImage imageNamed:[NSString stringWithFormat:@"type%d", (int)_type]];
+//    _type = type;
+//    switch (_type)
+//    {
+//        case 1:
+//            self.key = kTrain_Type1_Str;
+//            break;
+//            
+//        case 2:
+//            self.key = kTrain_Type2_Str;
+//            break;
+//            
+//        case 3:
+//            self.key = kTrain_Type3_Str;
+//            break;
+//            
+//        case 4:
+//            self.key = kTrain_Type4_Str;
+//            break;
+//            
+//        case 5:
+//            self.key = kTrain_Type5_Str;
+//            break;
+//            
+//        case 6:
+//            self.key = kTrain_Type6_Str;
+//            break;
+//            
+//        case 7:
+//            self.key = kTrain_Type7_Str;
+//            break;
+//            
+//        case 8:
+//            self.key = kTrain_Type8_Str;
+//            break;
+//        case 9:
+//            self.key = kTrain_Type9_Str;
+//            break;
+//            
+//        case 10:
+//            self.key = kTrain_Type10_Str;
+//            break;
+//            
+//        default:
+//            
+//            break;
+//    }
+//    
+//    _image = [UIImage imageNamed:[NSString stringWithFormat:@"type%d", (int)_type]];
 }
 
 - (NSInteger)playInterval
@@ -105,10 +105,10 @@
 
 - (NSInteger)duration
 {
-    if (_type == 2)
-    {
-        return 65;
-    }
+//    if (_type == 2)
+//    {
+//        return 65;
+//    }
     return 20;
 }
 
@@ -116,9 +116,9 @@
 {
     NSString *cachePath = [PathUtility getCachePath];
     
-    [PathUtility createDirectoryAtCache:@"Video"];
+    [PathUtility createDirectoryAtCache:VIDEO_FOLDER];
     
-    NSString *videoPath = [NSString stringWithFormat:@"%@/Video/", cachePath];
+    NSString *videoPath = [NSString stringWithFormat:@"%@/%@/", cachePath, VIDEO_FOLDER];
     return videoPath;
 }
 
@@ -261,9 +261,9 @@
 {
     NSString *cachePath = [PathUtility getCachePath];
     
-    [PathUtility createDirectoryAtCache:@"Video"];
+    [PathUtility createDirectoryAtCache:VIDEO_FOLDER];
     
-    NSString *videoPath = [NSString stringWithFormat:@"%@/Video/", cachePath];
+    NSString *videoPath = [NSString stringWithFormat:@"%@/%@/", cachePath, VIDEO_FOLDER];
     NSString *fileName = [self.videoPath md5];
     NSString *path = [NSString stringWithFormat:@"%@%@.mp4", videoPath, fileName];
     return path;

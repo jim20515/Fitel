@@ -80,6 +80,20 @@
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://leeyihugh.pixnet.net/blog/category/list/2579362"]];
     }];
     [self.menuItems addObject:item];
+
+    item = [[MenuItem alloc] initWithTitle:@"清除緩存" icon:nil action:^(id<MenuAbleItem> menu) {
+        //        http://leeyihugh.pixnet.net/blog/post/261135124
+        if([PathUtility removeFolderInCahe:TYPE_ITEM_FOLDER] && [PathUtility removeFolderInCahe:VIDEO_FOLDER]) {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"訊息" message:@"您已刪除完畢" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            
+            [alert show];
+        } else {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"訊息" message:@"刪除失敗，請再嘗試一次" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            
+            [alert show];
+        }
+    }];
+    [self.menuItems addObject:item];
     
     
 //    __weak typeof(self) ws = self;

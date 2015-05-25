@@ -291,6 +291,8 @@ static int _scrollViewHight = 130;
                      TrainItem *item = [array objectAtIndex:j];
                      if ([item.type integerValue] == i + 1)
                      {
+                         [value addObject:item];
+                         
                          if(typeItem.imageURL)
                              continue;
                          
@@ -321,11 +323,13 @@ static int _scrollViewHight = 130;
                              });
                          });
                          
-                         [value addObject:item];
                      }
                  }
                  
-                 TrainKeyValue *tkv = [[TrainKeyValue alloc] initWithType:i value:value];
+                 TrainKeyValue *tkv = [[TrainKeyValue alloc] initWithType:(i+1) value:value];
+                 tkv.key = typeItem.typeName;
+                 NSData *image = [[NSData alloc] initWithContentsOfURL:[NSURL URLWithString:typeItem.imageURL]];
+                 tkv.image = [UIImage imageWithData:image];
                  [realArray addObject:tkv];
              }
              
